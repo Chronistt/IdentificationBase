@@ -9,7 +9,7 @@ public class PersonsDAOImpl implements PersonsDAO {
     private final String url = "jdbc:postgresql://localhost:5432/persons";
 
     @Override
-    public Collection<Persons> getAllUsers() {
+    public Collection<PersonsDAOImpl> getAllUsers() {
         EntityManager entityManager = startEntityManager();
         Query query = entityManager.createNativeQuery("SELECT*FROM person", Persons.class);
         return query.getResultList();

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -15,7 +16,10 @@ public class Identification {
                 if (i == 1) {
                     createUsersRole();
                 } else if (i == 2) {
-                    Collection<Persons> personsRole = getAllUsersWithRoles();
+                    System.out.println("+===========Введите id пользователя===========+\n");
+                    int id = scanner.nextInt();
+                    PersonsDAOImpl personWitnRole = getUserWithRoles(id);
+                    System.out.println(personWitnRole);
                 } else if (i == 3) {
                     Collection<Persons> personsRole = getUsersByRole();
                 } else if (i == 4) {
@@ -74,8 +78,10 @@ public class Identification {
 
 
     //    2 Получать конкретного пользователя (с его ролями) из БД;
-    private static Collection<Persons> getAllUsersWithRoles() {
-        return null;
+    private static PersonsDAOImpl getUserWithRoles(int id) {
+        PersonsDAOImpl personsDAO = new PersonsDAOImpl();
+        personsDAO.getUsersById(id);
+        return personsDAO;
     }
 //    3 Получать список пользователей по конкретной роли;
 
@@ -90,7 +96,9 @@ public class Identification {
         }
 
     //    5 Получать список пользователей из БД (без ролей);
-    private static Collection<Persons> getAllUsersNoRole() {
+    private static Collection<PersonsDAOImpl> getAllUsersNoRole() {
+        Collection <PersonsDAOImpl> personsDAOCollection = new ArrayList<>();
+
         return null;
     }
     //    6 Редактировать существующего пользователя в БД.
