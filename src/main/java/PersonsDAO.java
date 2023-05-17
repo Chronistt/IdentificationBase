@@ -6,5 +6,6 @@ public interface PersonsDAO {
     Persons getUsersById(int id);
     void createUsers (Persons persons);
     void updateUsers(Persons persons);
-    void deleteUsers(int id, Persons persons);
+
+    void deleteUsers(int id);
 }

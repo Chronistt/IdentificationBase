@@ -19,6 +19,7 @@ public class Identification {
                 } else if (i == 3) {
                     Collection<Persons> personsRole = getUsersByRole();
                 } else if (i == 4) {
+                    System.out.println("+===========Введите id пользователя===========+\n");
                     int idUsers = scanner.nextInt();
                     deleteUser(idUsers);
                 } else if (i == 5) {
@@ -84,8 +85,9 @@ public class Identification {
 
     //    4 Удалять пользователя в БД;
     private static void deleteUser (int id) {
-
-    }
+        PersonsDAOImpl personsDAO = new PersonsDAOImpl();
+        personsDAO.deleteUsers(id);
+        }
 
     //    5 Получать список пользователей из БД (без ролей);
     private static Collection<Persons> getAllUsersNoRole() {

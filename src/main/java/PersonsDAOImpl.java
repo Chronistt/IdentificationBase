@@ -44,7 +44,8 @@ public class PersonsDAOImpl implements PersonsDAO {
     }
 
     @Override
-    public void deleteUsers(int id, Persons persons) {
+    public void deleteUsers(int id) {
+        Persons persons;
         EntityManager entityManager = startEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
