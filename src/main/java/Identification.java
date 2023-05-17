@@ -15,16 +15,16 @@ public class Identification {
                 if (i == 1) {
                     createUsersRole();
                 } else if (i == 2) {
-                    Collection<Persons> personsRole = getAllUsersRole();
+                    Collection<Persons> personsRole = getAllUsersWithRoles();
                 } else if (i == 3) {
-                    Collection<Persons> personsRole = getUsersRole();
+                    Collection<Persons> personsRole = getUsersByRole();
                 } else if (i == 4) {
                     int idUsers = scanner.nextInt();
-                    deleteUsersRole(idUsers);
+                    deleteUser(idUsers);
                 } else if (i == 5) {
                     Collection<Persons> personsNoRole = getAllUsersNoRole();
                 } else if (i == 6) {
-                    updateUsersPole();
+                    updateUser();
                 }
 
             } catch (Exception e) {
@@ -73,17 +73,17 @@ public class Identification {
 
 
     //    2 Получать конкретного пользователя (с его ролями) из БД;
-    private static Collection<Persons> getAllUsersRole() {
+    private static Collection<Persons> getAllUsersWithRoles() {
         return null;
     }
 //    3 Получать список пользователей по конкретной роли;
 
-    private static Collection<Persons> getUsersRole() {
+    private static Collection<Persons> getUsersByRole() {
         return null;
     }
 
     //    4 Удалять пользователя в БД;
-    private static void deleteUsersRole(int id) {
+    private static void deleteUser (int id) {
 
     }
 
@@ -93,7 +93,7 @@ public class Identification {
     }
     //    6 Редактировать существующего пользователя в БД.
 
-    private static void updateUsersPole() {
+    private static void updateUser() {
 
     }
 

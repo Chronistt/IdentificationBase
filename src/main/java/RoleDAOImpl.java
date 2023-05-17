@@ -1,6 +1,7 @@
 import javax.persistence.*;
 import java.util.Collection;
 
+
 public class RoleDAOImpl implements RoleDAO {
     private final String user = "postgres";
     private final String password = "dom881738";
