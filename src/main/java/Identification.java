@@ -18,8 +18,8 @@ public class Identification {
                 } else if (i == 2) {
                     System.out.println("+===========Введите id пользователя===========+\n");
                     int id = scanner.nextInt();
-                    PersonsDAOImpl personWitnRole = getUserWithRoles(id);
-                    System.out.println(personWitnRole);
+                    PersonsDAOImpl personWithRole = getUserWithRoles(id);
+                    System.out.println(personWithRole);
                 } else if (i == 3) {
                     Collection<Persons> personsRole = getUsersByRole();
                 } else if (i == 4) {
@@ -27,7 +27,7 @@ public class Identification {
                     int idUsers = scanner.nextInt();
                     deleteUser(idUsers);
                 } else if (i == 5) {
-                    Collection<Persons> personsNoRole = getAllUsersNoRole();
+                    Collection<PersonsDAOImpl> personsNoRole = getAllUsersNoRole();
                 } else if (i == 6) {
                     updateUser();
                 }
