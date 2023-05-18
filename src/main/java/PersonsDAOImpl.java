@@ -27,7 +27,7 @@ public class PersonsDAOImpl implements PersonsDAO {
         EntityManager entityManager = startEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        entityManager.persist(user);
+        entityManager.persist(persons);
 
         entityManager.getTransaction().commit();
         entityManager.close();

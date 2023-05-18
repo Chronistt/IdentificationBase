@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Identification {
     private static Scanner scanner = new Scanner(System.in);
-
+    private static PersonsDAOImpl personsDAO = new PersonsDAOImpl();
 
     public static void main(String[] args) {
+
         System.out.println("==============DataBase Identification============");
+
 
         while (true) {
             try {
@@ -79,7 +81,6 @@ public class Identification {
 
     //    2 Получать конкретного пользователя (с его ролями) из БД;
     private static PersonsDAOImpl getUserWithRoles(int id) {
-        PersonsDAOImpl personsDAO = new PersonsDAOImpl();
         personsDAO.getUsersById(id);
         return personsDAO;
     }
@@ -91,19 +92,32 @@ public class Identification {
 
     //    4 Удалять пользователя в БД;
     private static void deleteUser (int id) {
-        PersonsDAOImpl personsDAO = new PersonsDAOImpl();
+
         personsDAO.deleteUsers(id);
         }
 
     //    5 Получать список пользователей из БД (без ролей);
     private static Collection<PersonsDAOImpl> getAllUsersNoRole() {
-        Collection <PersonsDAOImpl> personsDAOCollection = new ArrayList<>();
+        Collection<PersonsDAOImpl> personsList = personsDAO.getAllUsers();
 
-        return null;
+        return personsList;
     }
     //    6 Редактировать существующего пользователя в БД.
 
-    private static void updateUser() {
+    private static void updateUser(PersonsDAO personsDAO, Scanner scanner) {
+        System.out.println("Id пользователя");
+        int id = scanner.nextInt();
+
+        System.out.println("Имя пльзователя\n");
+        String name = scanner.nextLine();
+
+        System.out.println("Login пльзователя\n");
+        String login = scanner.nextLine();
+
+        System.out.println("Password пльзователя\n");
+        String password = scanner.nextLine();
+
+        personsDAO.updateUsers(new Persons(name,login,password, id));
 
     }
 
