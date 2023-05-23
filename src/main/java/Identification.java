@@ -1,17 +1,20 @@
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
 public class Identification {
     private static Scanner scanner = new Scanner(System.in);
     private static PersonsDAOImpl personsDAO = new PersonsDAOImpl();
+    private static RoleDAOImpl roleDAO = new RoleDAOImpl();
 
     public static void main(String[] args) {
 
         System.out.println("==============DataBase Identification============");
+        RoleType roleType = RoleType.ANALYST;
+        Persons persons = new Persons("Петр Иванов","Ivanov","erok", roleType.ordinal());
+        PersonsDAOImpl personsDAO1 = new PersonsDAOImpl();
+        personsDAO1.createUsers(persons);
 
-
-        while (true) {
+      /*  while (true) {
             try {
                 printMenu();
                 int i = scanner.nextInt();
@@ -23,24 +26,29 @@ public class Identification {
                     PersonsDAOImpl personWithRole = getUserWithRoles(id);
                     System.out.println(personWithRole);
                 } else if (i == 3) {
-                    Collection<Persons> personsRole = getUsersByRole();
+                    System.out.println("+===========Введите номер роли пользователя===========+\n");
+                    int roleId = scanner.nextInt();
+                    RoleType role = RoleType.valueOf(roleId);
+                    Collection<PersonsDAOImpl> personsRole = getUsersByRole(role);
+                    System.out.println(personsRole);
                 } else if (i == 4) {
                     System.out.println("+===========Введите id пользователя===========+\n");
-                    int idUsers = scanner.nextInt();
-                    deleteUser(idUsers);
+                    int id = scanner.nextInt();
+                    deleteUser(id);
                 } else if (i == 5) {
                     Collection<PersonsDAOImpl> personsNoRole = getAllUsersNoRole();
+                    System.out.println(personsNoRole);
                 } else if (i == 6) {
-                    updateUser();
+                    updateUser(personsDAO);
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("НЕВЕРНЫЙ ВВОД");
                 scanner.nextLine();
-            }
+                 }
 
-        }
+        }*/
     }
 
     private static void printMenu() {
@@ -86,7 +94,7 @@ public class Identification {
     }
 //    3 Получать список пользователей по конкретной роли;
 
-    private static Collection<Persons> getUsersByRole() {
+    private static Collection<PersonsDAOImpl> getUsersByRole(RoleType role) {
         return null;
     }
 
@@ -104,7 +112,8 @@ public class Identification {
     }
     //    6 Редактировать существующего пользователя в БД.
 
-    private static void updateUser(PersonsDAO personsDAO, Scanner scanner) {
+    private static void updateUser(PersonsDAO personsDAO) {
+        Scanner scanner = null;
         System.out.println("Id пользователя");
         int id = scanner.nextInt();
 
