@@ -12,7 +12,8 @@ public class Role {
     private String role;
     @Column(name = "update_date")
     private LocalDateTime dateTimeUpdate;
-
+    @JoinTable (name = "persons")
+    @JoinColumn(name = "role_id")
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Persons> personsList;
 

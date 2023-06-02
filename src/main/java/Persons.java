@@ -22,7 +22,8 @@ public class Persons {
     private Integer userRole;
     @Column(name = "creation_date")
     private LocalDateTime dateTimeCreate;
-
+    @JoinTable (name = "persons")
+    @JoinColumn (name = "userid")
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Role> roles;
 
